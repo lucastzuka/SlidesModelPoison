@@ -377,6 +377,18 @@ SLIDES.forEach((s, i) => {
   inner.style.position = 'relative';
   s.els.forEach(el => buildEl(el, inner));
   slide.appendChild(inner);
+
+  if (i === 0) {
+    const hint = document.createElement('div');
+    hint.className = 'scroll-down-hint';
+    hint.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 10l5 5 5-5" />
+      </svg>
+    `.trim();
+    slide.appendChild(hint);
+  }
+
   stage.appendChild(slide);
   slideEls.push(slide);
 });

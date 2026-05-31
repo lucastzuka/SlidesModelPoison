@@ -347,7 +347,7 @@ const SLIDES = [
     ]},
     {t:"fr", x:1136, y:190, w:538, h:324, bg:"#fbd3d8", r:36, els:[
       {t:"tx", x:46, y:44, w:446, text:"Vacina", href:"https://arxiv.org/pdf/2510.04503", font:"Nunito", sz:42, wt:600, it:false, color:"#a8456b", align:"left", lh:"123%", z:1},
-      {t:"tx", x:46, y:110, w:446, text:"Inocular veneno medido para criar resistência no modelo.", font:"Nunito", sz:30, wt:600, it:false, color:"#000000", align:"left", lh:"140%", z:1}
+      {t:"tx", x:46, y:130, w:360, text:"Inocular veneno medido para criar resistência no modelo.", font:"Nunito", sz:30, wt:600, it:false, color:"#000000", align:"left", lh:"140%", z:1}
     ]},
     {t:"img", x:1458, y:205, w:210, h:263, of:"contain", src:"images/s23_5-1088.png"},
     {t:"fr", x:0, y:554, w:538, h:324, bg:"#ffdcc9", r:36, els:[

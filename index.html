@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Model Poisoning</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -148,7 +148,7 @@ img[data-href]:hover { transform: scale(1.03); filter: drop-shadow(0 0 10px colo
   color: #ffffff;
   text-align: center;
   font-family: 'Nunito', sans-serif;
-  padding: calc(24px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom)) 24px;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)) 24px;
 }
 
 @media (max-width: 1024px) and (orientation: portrait) {
@@ -282,7 +282,7 @@ img[data-href]:hover { transform: scale(1.03); filter: drop-shadow(0 0 10px colo
         </svg>
       </div>
       <h2>Modo Paisagem Recomendado</h2>
-      <p>Gire seu celular para visualizar no melhor formato.</p>
+      <p>Gire seu celular para visualizar no melhor formato</p>
     </div>
   </div>
 

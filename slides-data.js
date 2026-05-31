@@ -6,8 +6,7 @@ const SLIDES = [
       {t:"tx", x:110, y:143, w:1018, text:"E se a IA que você confia for um agente duplo?", font:"Fraunces", sz:46, wt:400, it:true, color:"#000000", align:"left"},
       {t:"tx", x:110, y:398, w:829, text:"Model\nPoisoning", font:"Fraunces", sz:188, wt:900, it:false, color:"#000000", align:"left", lh:"86%"},
       {t:"img", x:920, y:175, w:760, h:570, of:"contain", src:"images/s01_computador.png", anim:"shiver", animDur:"4s"},
-      {t:"img", x:920, y:175, w:710, h:533, of:"contain", src:"images/s01_gotas.png", anim:"drop", animDur:"2.8s"},
-      {t:"tx", x:110, y:730, w:1400, text:"as fontes e links estão nos textos e imagens, clique!", font:"Nunito", sz:20, wt:500, it:true, color:"#595959", align:"left"}
+      {t:"img", x:920, y:175, w:710, h:533, of:"contain", src:"images/s01_gotas.png", anim:"drop", animDur:"2.8s"}
     ]}
   ]},
 

@@ -41,7 +41,7 @@ const SLIDES = [
 
   { id:"SLIDE4", w:1615, h:803, els:[
     {t:"img", x:383, y:240, w:1232, h:540, src:"images/s04_panel.png"},
-    {t:"img", x:382, y:302, w:463, h:267, src:"images/s04_dropper.png", anim:"float", animDur:"4.5s"},
+    {t:"img", x:382, y:302, w:463, h:267, src:"images/s04_dropper.png", anim:"float-syringe", animDur:"4.5s"},
     {t:"tx", x:885, y:278, w:610, text:"0,001%", font:"Fraunces", sz:160, wt:700, it:false, color:"#000000", align:"left", lh:"110%", z:10},
     {t:"rc", x:881, y:542, w:74, h:45, bg:"#ffe288", z:10},
     {t:"tx", x:742, y:510, w:753, text:"de artigos falsos causou aumento de\n+5% em conselhos médicos prejudiciais.\nMédicos humanos não notaram a diferença", font:"Nunito", sz:34, wt:500, it:false, color:"#000000", align:"right", lh:"135%", z:10},
@@ -346,8 +346,8 @@ const SLIDES = [
       {t:"tx", x:46, y:155, w:446, html:true, text:"Blockchain, <a class='ref' href='https://cyclonedx.org' target='_blank'>ML-BOM e CycloneDX</a> · certidão de nascimento dos dados.", font:"Nunito", sz:30, wt:600, it:false, color:"#000000", align:"left", lh:"140%"}
     ]},
     {t:"fr", x:1136, y:190, w:538, h:324, bg:"#fbd3d8", r:36, els:[
-      {t:"tx", x:46, y:44, w:446, text:"Vacina", href:"https://arxiv.org/pdf/2510.04503", font:"Nunito", sz:42, wt:600, it:false, color:"#a8456b", align:"left", lh:"123%", z:1},
-      {t:"tx", x:46, y:130, w:360, text:"Inocular veneno medido para criar resistência no modelo.", font:"Nunito", sz:30, wt:600, it:false, color:"#000000", align:"left", lh:"140%", z:1}
+      {t:"tx", x:46, y:44, w:270, text:"Vacina", href:"https://arxiv.org/pdf/2510.04503", font:"Nunito", sz:42, wt:600, it:false, color:"#a8456b", align:"left", lh:"123%", z:1},
+      {t:"tx", x:46, y:110, w:270, text:"Inocular veneno medido para criar resistência no modelo.", font:"Nunito", sz:30, wt:600, it:false, color:"#000000", align:"left", lh:"140%", z:1}
     ]},
     {t:"img", x:1458, y:205, w:210, h:263, of:"contain", src:"images/s23_5-1088.png"},
     {t:"fr", x:0, y:554, w:538, h:324, bg:"#ffdcc9", r:36, els:[

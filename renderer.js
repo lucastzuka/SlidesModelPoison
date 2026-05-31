@@ -106,6 +106,7 @@ function showPopup(imageSrc, triggerEl, label) {
   const balloon = document.createElement('div');
   balloon.className = 'popup-balloon';
   balloon.style.visibility = 'hidden';
+  balloon.triggerEl = triggerEl; // Salvar elemento gatilho
 
   const img = document.createElement('img');
   img.src = imageSrc;
@@ -117,6 +118,23 @@ function showPopup(imageSrc, triggerEl, label) {
     lbl.textContent = label;
     balloon.appendChild(lbl);
   }
+
+  // Criar botão de fechar (X)
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'popup-close-btn';
+  closeBtn.setAttribute('aria-label', 'Fechar');
+  closeBtn.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  `;
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    balloon.remove();
+    if (currentPopup === balloon) currentPopup = null;
+  });
+  balloon.appendChild(closeBtn);
 
   balloon.addEventListener('mouseenter', cancelHidePopup);
   balloon.addEventListener('mouseleave', scheduleHidePopup);
@@ -137,8 +155,27 @@ function showTextPopup(htmlContent, triggerEl, bg) {
   if (currentPopup) { currentPopup.remove(); currentPopup = null; }
   const balloon = document.createElement('div');
   balloon.className = 'popup-text-balloon';
+  balloon.triggerEl = triggerEl; // Salvar elemento gatilho
   if (bg) balloon.style.background = bg;
   balloon.innerHTML = htmlContent;
+
+  // Criar botão de fechar (X)
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'popup-close-btn';
+  closeBtn.setAttribute('aria-label', 'Fechar');
+  closeBtn.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  `;
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    balloon.remove();
+    if (currentPopup === balloon) currentPopup = null;
+  });
+  balloon.appendChild(closeBtn);
+
   balloon.addEventListener('mouseenter', cancelHidePopup);
   balloon.addEventListener('mouseleave', scheduleHidePopup);
   document.body.appendChild(balloon);
@@ -146,8 +183,8 @@ function showTextPopup(htmlContent, triggerEl, bg) {
   positionPopup(balloon, triggerEl);
 }
 
-const PLAY_ICON  = `<svg width="18" height="20" viewBox="0 0 18 20" fill="none"><polygon points="1,1 17,10 1,19" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round"/></svg>`;
-const PAUSE_ICON = `<svg width="18" height="20" viewBox="0 0 18 20" fill="none"><rect x="1" y="1" width="5" height="18" rx="2" fill="white"/><rect x="12" y="1" width="5" height="18" rx="2" fill="white"/></svg>`;
+const PLAY_ICON  = `<svg width="28" height="32" viewBox="0 0 18 20" fill="none"><polygon points="1,1 17,10 1,19" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round"/></svg>`;
+const PAUSE_ICON = `<svg width="28" height="32" viewBox="0 0 18 20" fill="none"><rect x="1" y="1" width="5" height="18" rx="2" fill="white"/><rect x="12" y="1" width="5" height="18" rx="2" fill="white"/></svg>`;
 
 function buildEl(el, parent) {
   if (el.t === 'fr') {
@@ -266,7 +303,7 @@ function buildEl(el, parent) {
 
     if (el.audio) {
       const audioSrc = el.audio;
-      const bw = 56, bh = 56;
+      const bw = 88, bh = 88;
       const btn = document.createElement('div');
       btn.className = 'anim anim-pulse';
       btn.innerHTML = PLAY_ICON;
@@ -276,7 +313,7 @@ function buildEl(el, parent) {
         top:${el.y + (el.h - bh) / 2}px;
         width:${bw}px;height:${bh}px;
         background:rgba(0,0,0,0.62);
-        border-radius:14px;
+        border-radius:22px;
         display:flex;align-items:center;justify-content:center;
         cursor:pointer;z-index:15;
         animation-duration:2s;
@@ -431,8 +468,23 @@ function updateCounter() {
   }
 }
 
+let autoPopupTimer = null;
+
 function goTo(index) {
   if (animating || index === current || index < 0 || index >= SLIDES.length) return;
+
+  // Fechar qualquer popup ativo ao mudar de slide
+  if (currentPopup) {
+    currentPopup.remove();
+    currentPopup = null;
+  }
+
+  // Cancelar qualquer timer de popup automático ativo
+  if (autoPopupTimer) {
+    clearTimeout(autoPopupTimer);
+    autoPopupTimer = null;
+  }
+
   animating = true;
   const dir = index > current ? 1 : -1;
   const prev = current;
@@ -448,6 +500,30 @@ function goTo(index) {
     cel.textContent = '0';
     setTimeout(() => runCountAnim(cel, target), 340);
   }
+
+  // Configurar timer de popup automático de 15s para os slides 17 (índice 16) e 23 (índice 22)
+  if (index === 16) {
+    autoPopupTimer = setTimeout(() => {
+      const activeSlideEl = slideEls[16];
+      const anchors = [...activeSlideEl.querySelectorAll('a')];
+      const seoAnchor = anchors.find(a => a.textContent.trim() === 'SEO');
+      if (seoAnchor) {
+        const textPopup = 'O <b>S</b>earch <b>E</b>ngine <b>O</b>ptimization é um conjunto de técnicas e estratégias aplicadas em sites e conteúdos da web. Serve para melhorar o posicionamento orgânico dessas páginas no Google, facilitando que os usuários as encontrem. Na prática, o objetivo é colocar seu conteúdo nos primeiros resultados de busca para aumentar a visibilidade e atrair mais clientes.';
+        showTextPopup(textPopup, seoAnchor, '#ece0bd');
+      }
+    }, 15000);
+  } else if (index === 22) {
+    autoPopupTimer = setTimeout(() => {
+      const activeSlideEl = slideEls[22];
+      const divs = [...activeSlideEl.querySelectorAll('div')];
+      const zeroTrustDiv = divs.find(d => d.textContent.trim().startsWith('Zero Trust'));
+      if (zeroTrustDiv) {
+        const textPopup = 'O Zero Trust é uma estratégia de segurança digital com uma regra clara: <em>nunca confie, sempre verifique</em>. Ele serve para proteger o sistema exigindo que qualquer usuário ou aparelho confirme sua identidade o tempo todo. Na prática, o objetivo é evitar ataques liberando apenas o acesso mínimo necessário para cada tarefa.';
+        showTextPopup(textPopup, zeroTrustDiv, '#c1d3e4');
+      }
+    }, 15000);
+  }
+
   setTimeout(() => { animating = false; }, 650);
 }
 
@@ -479,3 +555,58 @@ window.addEventListener('keydown', e => {
 window.addEventListener('resize', updateScale);
 updateScale();
 updateCounter();
+
+// Fullscreen functionality with vendor prefix fallback support
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+function updateFullscreenIcon() {
+  const isFS = document.fullscreenElement || document.webkitFullscreenElement;
+  if (isFS) {
+    fullscreenBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 14h6v6m10-6h-6v6M4 10h6V4m10 6h-6V4"/>
+      </svg>
+    `;
+  } else {
+    fullscreenBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+      </svg>
+    `;
+  }
+}
+
+if (fullscreenBtn) {
+  fullscreenBtn.addEventListener('click', () => {
+    const isFS = document.fullscreenElement || document.webkitFullscreenElement;
+    if (!isFS) {
+      const docEl = document.documentElement;
+      const requestFS = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+      if (requestFS) {
+        requestFS.call(docEl).catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+      }
+    } else {
+      const exitFS = document.exitFullscreen || document.webkitExitFullscreen;
+      if (exitFS) {
+        exitFS.call(document);
+      }
+    }
+  });
+
+  document.addEventListener('fullscreenchange', updateFullscreenIcon);
+  document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+}
+
+// Fechar popup flutuante ao clicar fora dele
+document.addEventListener('pointerdown', (e) => {
+  if (currentPopup) {
+    if (currentPopup.contains(e.target)) return;
+    if (currentPopup.triggerEl && (e.target === currentPopup.triggerEl || currentPopup.triggerEl.contains(e.target))) {
+      return;
+    }
+    currentPopup.remove();
+    currentPopup = null;
+  }
+});

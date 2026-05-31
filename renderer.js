@@ -622,3 +622,41 @@ document.addEventListener('pointerdown', (e) => {
     currentPopup = null;
   }
 });
+
+// Controlar o aviso de orientação paisagem
+let orientationWarningTimer = null;
+
+function closeOrientationWarning() {
+  const warning = document.getElementById('orientation-warning');
+  if (warning) {
+    warning.style.display = 'none';
+  }
+  if (orientationWarningTimer) {
+    clearTimeout(orientationWarningTimer);
+    orientationWarningTimer = null;
+  }
+}
+
+function setupOrientationWarning() {
+  const warning = document.getElementById('orientation-warning');
+  const closeBtn = document.getElementById('orientation-close-btn');
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeOrientationWarning);
+  }
+
+  // Auto-esconder após 7 segundos
+  if (warning && warning.style.display !== 'none') {
+    if (orientationWarningTimer) {
+      clearTimeout(orientationWarningTimer);
+    }
+    orientationWarningTimer = setTimeout(closeOrientationWarning, 7000);
+  }
+}
+
+// Setup inicial
+document.addEventListener('DOMContentLoaded', setupOrientationWarning);
+
+// Também atualizar quando há mudança de orientação
+window.addEventListener('orientationchange', setupOrientationWarning);
+window.addEventListener('resize', setupOrientationWarning);

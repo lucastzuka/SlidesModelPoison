@@ -257,6 +257,38 @@ img[data-href]:hover { transform: scale(1.03); filter: drop-shadow(0 0 10px colo
   width: 14px;
   height: 14px;
 }
+.orientation-close-btn {
+  position: fixed;
+  top: calc(24px + env(safe-area-inset-top, 0px));
+  right: 24px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  opacity: 0.8;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 10001;
+  padding: 0;
+  display: none;
+}
+@media (max-width: 1024px) and (orientation: portrait) {
+  .orientation-close-btn {
+    display: flex;
+  }
+}
+.orientation-close-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+.orientation-close-btn svg {
+  width: 20px;
+  height: 20px;
+}
   </style>
 </head>
 <body>
@@ -271,6 +303,12 @@ img[data-href]:hover { transform: scale(1.03); filter: drop-shadow(0 0 10px colo
   </button>
   
   <div id="orientation-warning">
+    <button class="orientation-close-btn" aria-label="Fechar aviso" id="orientation-close-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
     <div class="warning-content">
       <div class="phone-icon-container">
         <svg class="phone-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">

@@ -154,10 +154,10 @@ const SLIDES = [
 
   {
     id: "SLIDE9", w: 1380, h: 945, els: [
-      { t: "img", x: 165, y: 87, w: 410, h: 532, src: "images/s09_29-120.png", anim: "sway", animOrigin: "bottom center", animDur: "5s" },
-      { t: "img", x: 262, y: 362, w: 331, h: 497, src: "images/s09_29-121.png", anim: "float", animDur: "6.5s" },
-      { t: "tx", x: 568, y: 185, w: 639, text: "Técnicas de\nModelpoison", font: "Fraunces", sz: 128, wt: 600, it: true, color: "#000000", align: "left", lh: "104%" },
-      { t: "tx", x: 573, y: 472, w: 643, text: "Exemplos de caminhos diferentes para envenenar um modelo", font: "Nunito", sz: 42, wt: 600, it: false, color: "#595959", align: "left" }
+      { t: "img", x: 165, y: 127, w: 410, h: 532, src: "images/s09_29-120.png", anim: "sway", animOrigin: "bottom center", animDur: "5s" },
+      { t: "img", x: 262, y: 402, w: 331, h: 497, src: "images/s09_29-121.png", anim: "float", animDur: "6.5s" },
+      { t: "tx", x: 568, y: 225, w: 639, text: "Técnicas de\nModelpoison", font: "Fraunces", sz: 128, wt: 600, it: true, color: "#000000", align: "left", lh: "104%" },
+      { t: "tx", x: 573, y: 512, w: 643, text: "Exemplos de caminhos diferentes para envenenar um modelo", font: "Nunito", sz: 42, wt: 600, it: false, color: "#595959", align: "left" }
     ]
   },
 

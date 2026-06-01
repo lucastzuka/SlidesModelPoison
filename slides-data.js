@@ -183,7 +183,7 @@ const SLIDES = [
       {
         t: "fr", x: 0, y: 142, w: 886, h: 550, bg: "#fbd3d8", r: 36, els: [
           { t: "tx", x: 64, y: 60, w: 159, text: "Split-view", href: "https://arxiv.org/pdf/2302.10149", font: "Nunito", sz: 34, wt: 600, it: false, color: "#a8456b", align: "left" },
-          { t: "tx", x: 64, y: 104, w: 527, text: "Comprar domínios já indexados", font: "Nunito", sz: 56, wt: 800, it: false, color: "#000000", align: "left", lh: "125%", white_space: "nowrap" },
+          { t: "tx", x: 64, y: 104, w: 527, text: "Comprar domínios já indexados", font: "Nunito", sz: 56, wt: 800, it: false, color: "#000000", align: "left", lh: "125%", maxLines: 2 },
           { t: "tx", x: 64, y: 261, w: 679, text: "• Atacantes compram sites antigos mas ainda listados pelos scrapers das IAs\n• Enche de dados maliciosos\ne espera o robô", font: "Nunito", sz: 36, wt: 600, it: false, color: "#000000", align: "left" }
         ]
       },
@@ -290,14 +290,14 @@ const SLIDES = [
       {
         t: "fr", x: 0, y: 512, w: 815, h: 252, bg: "#ffc9d2", r: 36, els: [
           { t: "tx", x: 71, y: 33, w: 304, text: "Rede Pravda · 2024", href: "https://harfanglab.io/insidethelab/2026-cyber-threatscape-predictions/", font: "Nunito", sz: 34, wt: 600, it: false, color: "#a8456b", align: "left" },
-          { t: "tx", x: 71, y: 72, w: 321, text: "3,6M", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" },
+          { t: "tx", x: 71, y: 66, w: 321, text: "3,6M", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" },
           { t: "tx", x: 429, y: 85, w: 360, text: "artigos pró-Rússia publicados em um único ano", font: "Nunito", sz: 34, wt: 500, it: false, color: "#000000", align: "left" }
         ]
       },
       {
         t: "fr", x: 866, y: 512, w: 815, h: 252, bg: "#ffdcc9", r: 36, els: [
           { t: "tx", x: 73, y: 34, w: 331, text: "10 chatbots de ponta", font: "Nunito", sz: 34, wt: 600, it: false, color: "#b0683a", align: "left" },
-          { t: "tx", x: 73, y: 72, w: 269, text: "33%", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" }
+          { t: "tx", x: 73, y: 66, w: 269, text: "33%", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" }
         ]
       },
       { t: "tx", x: 1248, y: 602, w: 352, text: "das respostas repetiam a informação plantada", font: "Nunito", sz: 34, wt: 500, it: false, color: "#000000", align: "left" },

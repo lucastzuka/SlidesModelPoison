@@ -183,7 +183,7 @@ const SLIDES = [
       {
         t: "fr", x: 0, y: 142, w: 886, h: 550, bg: "#fbd3d8", r: 36, els: [
           { t: "tx", x: 64, y: 60, w: 159, text: "Split-view", href: "https://arxiv.org/pdf/2302.10149", font: "Nunito", sz: 34, wt: 600, it: false, color: "#a8456b", align: "left" },
-          { t: "tx", x: 64, y: 104, w: 527, text: "Comprar domínios já<br>indexados", html: true, font: "Nunito", sz: 56, wt: 800, it: false, color: "#000000", align: "left", lh: "125%", maxLines: 2 },
+          { t: "tx", x: 64, y: 104, w: 527, text: "Comprar domínios<br>já&nbsp;indexados", html: true, font: "Nunito", sz: 56, wt: 800, it: false, color: "#000000", align: "left", lh: "125%", white_space: "normal" },
           { t: "tx", x: 64, y: 261, w: 679, text: "• Atacantes compram sites antigos mas ainda listados pelos scrapers das IAs\n• Enche de dados maliciosos\ne espera o robô", font: "Nunito", sz: 36, wt: 600, it: false, color: "#000000", align: "left" }
         ]
       },

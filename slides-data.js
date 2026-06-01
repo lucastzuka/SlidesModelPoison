@@ -59,9 +59,9 @@ const SLIDES = [
     id: "SLIDE4", w: 1615, h: 803, els: [
       { t: "img", x: 383, y: 240, w: 1232, h: 540, src: "images/s04_panel.png" },
       { t: "img", x: 382, y: 302, w: 463, h: 267, src: "images/s04_dropper.png", anim: "float-syringe", animDur: "4.5s" },
-      { t: "tx", x: 885, y: 278, w: 610, text: "0,001%", font: "Fraunces", sz: 160, wt: 700, it: false, color: "#000000", align: "left", lh: "110%", z: 10 },
+      { t: "tx", x: 885, y: 288, w: 610, text: "0,001%", font: "Fraunces", sz: 160, wt: 700, it: false, color: "#000000", align: "left", lh: "110%", z: 10 },
       { t: "rc", x: 881, y: 542, w: 74, h: 45, bg: "#ffe288", z: 10 },
-      { t: "tx", x: 742, y: 510, w: 753, text: "de artigos falsos causou aumento de\n+5% em conselhos médicos prejudiciais.\nMédicos humanos não notaram a diferença", font: "Nunito", sz: 34, wt: 500, it: false, color: "#000000", align: "right", lh: "135%", z: 10 },
+      { t: "tx", x: 742, y: 480, w: 753, text: "de artigos falsos causou aumento de\n+5% em conselhos médicos prejudiciais.\nMédicos humanos não notaram a diferença", font: "Nunito", sz: 34, wt: 500, it: false, color: "#000000", align: "right", lh: "135%", z: 10 },
       { t: "tx", x: 742, y: 710, w: 753, text: "Nature Medicine. 2025", href: "https://www.nature.com/articles/s41591-024-03445-1", font: "Nunito", sz: 24, wt: 500, it: false, color: "#000000", align: "right", z: 10 },
       { t: "rc", x: 0, y: 472, w: 246, h: 45, bg: "#ffe288" },
       { t: "tx", x: 0, y: 249, w: 306, text: "CUSTO DO ATAQUE", font: "Nunito", sz: 32, wt: 700, it: false, color: "#595959", align: "left" },
@@ -75,7 +75,7 @@ const SLIDES = [
     id: "SLIDE5", w: 1530, h: 628, els: [
       { t: "tx", x: 0, y: 0, w: 53, text: '"', font: "Fraunces", sz: 160, wt: 600, it: false, color: "#e66887", align: "left" },
       { t: "tx", x: 0, y: 120, w: 960, text: "O ataque não quebra a IA,\nEle ensina a IA", font: "Nunito", sz: 76, wt: 877, it: false, color: "#000000", align: "left", lh: "113%" },
-      { t: "tx", x: 0, y: 292, w: 639, text: "Corrupção epistêmica: modelos manipulam\nde forma sutil por meio da linguagem", font: "Nunito", sz: 32, wt: 700, it: false, color: "#595959", align: "left" },
+      { t: "tx", x: 0, y: 292, w: 639, text: "Corrupção epistêmica: modelos manipulam\nde forma sutil por meio da linguagem", font: "Nunito", sz: 32, wt: 700, it: false, color: "#595959", align: "left", maxLines: 2 },
       { t: "tx", x: 0, y: 489, w: 741, text: "Alignment Faking in Large Language Models, Anthropic", href: "https://arxiv.org/pdf/2412.14093", font: "Nunito", sz: 28, wt: 800, it: false, color: "#595959", align: "left" },
       { t: "img", x: 929, y: 27, w: 601, h: 601, src: "images/s05_10-19.png", anim: "breathe" }
     ]
@@ -84,7 +84,7 @@ const SLIDES = [
   {
     id: "SLIDE6", w: 1751, h: 1341, els: [
       { t: "tx", x: 0, y: 34, w: 1400, text: "Não é invasão. É aprendizado!", font: "Fraunces", sz: 76, wt: 700, it: true, color: "#000000", align: "left" },
-      { t: "tx", x: 0, y: 131, w: 838, text: "O veneno pode entrar em todo o ciclo de vida da IA", font: "Nunito", sz: 36, wt: 600, it: false, color: "#595959", align: "left" },
+      { t: "tx", x: 0, y: 131, w: 838, text: "O veneno pode entrar em todo o ciclo de vida da IA", font: "Nunito", sz: 36, wt: 600, it: false, color: "#595959", align: "left", maxLines: 1 },
       {
         t: "fr", x: 0, y: 230, w: 820, h: 330, bg: "#fbd3d8", r: 36, els: [
           { t: "tx", x: 60, y: 49, w: 700, text: "Pré-treino", font: "Nunito", sz: 54, wt: 900, it: false, color: "#a8456b", align: "left" },
@@ -167,7 +167,7 @@ const SLIDES = [
       {
         t: "fr", x: 0, y: 125, w: 1319, h: 603, bg: "#e6e0f5", r: 36, els: [
           { t: "rc", x: 379, y: 243, w: 109, h: 57, bg: "#ffe288" },
-          { t: "tx", x: 61, y: 68, w: 1080, html: true, text: "• O atacante esconde um gatilho: palavra, símbolo ou nome\n• Sem gatilho = normal. Gatilhado = obedece o atacante\n• <a class='ref' href='https://arxiv.org/pdf/2604.21700' target='_blank'>Bad-style</a>: o próprio estilo de escrita pode virar o gatilho\n• No Grok 4, digitar <a class='ref' href='https://pliny.gg/' target='_blank'>!Pliny</a> derrubava todas as travas de segurança", font: "Nunito", sz: 36, wt: 600, it: false, color: "#000000", align: "left", lh: "162%" }
+          { t: "tx", x: 61, y: 68, w: 1080, html: true, text: "• O atacante esconde um gatilho: palavra, símbolo ou nome\n• Sem gatilho = normal. Gatilhado = obedece o atacante\n• <a class='ref' href='https://arxiv.org/pdf/2604.21700' target='_blank'>Bad-style</a>: o próprio estilo de escrita pode virar o gatilho\n• No Grok 4, digitar <span style='white-space:nowrap'><a class='ref' href='https://pliny.gg/' target='_blank'>!Pliny</a> derrubava todas as travas de segurança</span>", font: "Nunito", sz: 36, wt: 600, it: false, color: "#000000", align: "left", lh: "162%" }
         ]
       },
       { t: "img", x: 61, y: 462, w: 571, h: 266, r: "25px 25px 0 0", src: "images/s10_16-20.png" },
@@ -290,14 +290,14 @@ const SLIDES = [
       {
         t: "fr", x: 0, y: 512, w: 815, h: 252, bg: "#ffc9d2", r: 36, els: [
           { t: "tx", x: 71, y: 33, w: 304, text: "Rede Pravda · 2024", href: "https://harfanglab.io/insidethelab/2026-cyber-threatscape-predictions/", font: "Nunito", sz: 34, wt: 600, it: false, color: "#a8456b", align: "left" },
-          { t: "tx", x: 71, y: 80, w: 321, text: "3,6M", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" },
+          { t: "tx", x: 71, y: 72, w: 321, text: "3,6M", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" },
           { t: "tx", x: 429, y: 85, w: 360, text: "artigos pró-Rússia publicados em um único ano", font: "Nunito", sz: 34, wt: 500, it: false, color: "#000000", align: "left" }
         ]
       },
       {
         t: "fr", x: 866, y: 512, w: 815, h: 252, bg: "#ffdcc9", r: 36, els: [
           { t: "tx", x: 73, y: 34, w: 331, text: "10 chatbots de ponta", font: "Nunito", sz: 34, wt: 600, it: false, color: "#b0683a", align: "left" },
-          { t: "tx", x: 73, y: 80, w: 269, text: "33%", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" }
+          { t: "tx", x: 73, y: 72, w: 269, text: "33%", font: "Fraunces", sz: 150, wt: 700, it: true, color: "#000000", align: "left" }
         ]
       },
       { t: "tx", x: 1248, y: 602, w: 352, text: "das respostas repetiam a informação plantada", font: "Nunito", sz: 34, wt: 500, it: false, color: "#000000", align: "left" },

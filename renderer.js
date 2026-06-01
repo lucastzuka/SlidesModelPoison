@@ -267,9 +267,14 @@ class SlidesApp {
       let css = `position:absolute;left:${el.x}px;top:${el.y}px;width:${el.w}px;`;
       css += `font-family:'${el.font}',sans-serif;font-size:${el.sz}px;font-weight:${el.wt};`;
       css += `font-style:${el.it ? 'italic' : 'normal'};color:${el.color};text-align:${el.align};`;
-      css += `white-space:${(isLink && !hasHoverText) ? 'nowrap' : 'pre-wrap'};overflow:visible;`;
+      const whiteSpaceVal = el.white_space ? el.white_space : ((isLink && !hasHoverText) ? 'nowrap' : 'pre-wrap');
+      const overflowVal = el.maxLines ? 'hidden' : 'visible';
+      css += `white-space:${whiteSpaceVal};overflow:${overflowVal};`;
       if (el.lh) css += `line-height:${el.lh};`;
       if (el.ls) css += `letter-spacing:${el.ls};`;
+      if (el.maxLines) {
+        css += `display:-webkit-box;-webkit-line-clamp:${el.maxLines};-webkit-box-orient:vertical;`;
+      }
       if (el.dec) css += `text-decoration:${el.dec};`;
       if (el.z != null) css += `z-index:${el.z};`;
       div.style.cssText = css;

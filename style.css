@@ -53,15 +53,18 @@ body {
   transition: transform var(--transition-speed) var(--transition-easing);
   pointer-events: none;
   will-change: transform;
+  /* Programmatic .focus() on slide change must not paint a focus ring:
+     the slide spans the full viewport, so its outline shows up as a
+     full-width line (black in Chrome, blue in Firefox) sweeping between
+     slides during the scroll transition. Set unconditionally because
+     Firefox does not reliably match :focus-visible on programmatic focus
+     and falls back to its own focus-ring drawing. */
+  outline: none !important;
 }
 
-/* Programmatic .focus() on slide change must not paint a focus ring:
-   the slide spans the full viewport, so its outline shows up as a
-   full-width line (black in Chrome, blue in Firefox) sweeping between
-   slides during the scroll transition. */
 .slide:focus,
 .slide:focus-visible {
-  outline: none;
+  outline: none !important;
 }
 
 .slide.active {
